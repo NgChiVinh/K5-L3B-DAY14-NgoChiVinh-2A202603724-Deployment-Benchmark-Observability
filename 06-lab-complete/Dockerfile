@@ -5,7 +5,7 @@
 # ============================================================
 
 # ---------- Stage 1: builder ----------
-FROM python:3.11-slim AS builder
+FROM python:3.11-slim as builder
 
 ENV PIP_NO_CACHE_DIR=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1
@@ -19,7 +19,7 @@ RUN pip install -r requirements.txt
 
 
 # ---------- Stage 2: runtime ----------
-FROM python:3.11-slim AS runtime
+FROM python:3.11-slim as runtime
 
 ENV PATH="/opt/venv/bin:$PATH" \
     PYTHONDONTWRITEBYTECODE=1 \

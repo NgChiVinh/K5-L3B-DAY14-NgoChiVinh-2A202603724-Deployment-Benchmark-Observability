@@ -93,12 +93,12 @@ async def lifespan(app: FastAPI):
                   detail="AGENT_API_KEY chưa đặt — /ask sẽ trả 401 cho mọi request")
     yield
     # Shutdown: chờ nốt request còn dở (phòng hờ), rồi đóng kết nối Redis
-    log_event("shutdown_started", in_flight=_in_flight)
+    log_event("graceful_shutdown_started", in_flight=_in_flight)
     deadline = time.monotonic() + SHUTDOWN_DRAIN_SECONDS
     while _in_flight > 0 and time.monotonic() < deadline:
         await anyio.sleep(0.1)
     close_redis()
-    log_event("shutdown_complete", in_flight=_in_flight)
+    log_event("graceful_shutdown_complete", in_flight=_in_flight)
 
 
 app = FastAPI(title="Production AI Agent", version="1.0.0", lifespan=lifespan)
