@@ -1,0 +1,12 @@
+# Secrets — chỉ commit .env.example
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtualenv
+venv/
+.venv/
