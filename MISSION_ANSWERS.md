@@ -217,7 +217,7 @@ Lúc đầu `docker compose up` báo lỗi `429 Too Many Requests` khi pull `qdr
 
 ### Exercise 3.1 / 3.2: Deploy (nền tảng chính: Render)
 
-Railway: tài khoản đã hết trial nên chuyển sang Render (free plan). Deploy **chính agent Part 6** (`06-lab-complete/`) bằng Blueprint `06-lab-complete/render.yaml`.
+Nền tảng: Render (free plan). Deploy **chính agent Part 6** (`06-lab-complete/`) bằng Blueprint `06-lab-complete/render.yaml`.
 
 - **URL:** https://production-ai-agent-nrfk.onrender.com
 - Chi tiết lệnh test và biến môi trường: [DEPLOYMENT.md](DEPLOYMENT.md)
@@ -632,8 +632,6 @@ Các lần chạy trước đó (trước khi có WSL):
 |---|---|---|---|---|
 | 1 | Tổng quan | Đọc đề lab 14 và lên kế hoạch | Tóm tắt yêu cầu, rubric, các lỗi bị trừ điểm, kế hoạch theo điểm | Đối chiếu với RUBRIC.md, SUBMISSION.md, CHECKPOINTS.md |
 | 2 | Part 6 | Viết các TODO trong `06-lab-complete/` | Code `config.py`, `auth.py`, `rate_limiter.py`, `cost_guard.py`, `redis_client.py`, `main.py`, Dockerfile, compose, `.dockerignore`, `.env.example`, `railway.toml`, `render.yaml` | Chạy `check_production_ready.py` (Windows và container Linux); test tay 401 / 422 / 429 / 503 bằng `docker compose`; đọc lại từng file để giải thích được |
-| 3 | Part 3 | Chọn nền tảng và deploy | Hướng dẫn Render Blueprint (Railway của tôi đã hết trial), sửa đường dẫn trong `render.yaml` | Tự tạo service trên Render, chạy 4 lệnh CP6 (200 / 200 / 401 / 200), tự chụp 3 ảnh |
+| 3 | Part 3 | Chọn nền tảng và deploy | Hướng dẫn Render Blueprint, sửa đường dẫn trong `render.yaml` | Tự tạo service trên Render, chạy 4 lệnh CP6 (200 / 200 / 401 / 200), tự chụp 3 ảnh |
 | 4 | Part 7 Bước 1 | Chạy load test, eval, sửa knowledge base, viết CI | Chạy các lệnh, thêm 2 tài liệu vào `KNOWLEDGE_BASE`, metric `agent_question_length_chars`, `.github/workflows/eval.yml`, điền BENCHMARK_REPORT mục 1–3 | Mọi số trong báo cáo lấy từ file JSON trong `reports/` (đã đối chiếu tự động 34 con số); eval cuối đạt 23/23, 0 regression |
 | 5 | Part 1, 2, 4, 5 | Chạy các ví dụ và soạn câu trả lời | Chạy app / container / compose, ghi output, soạn nháp câu trả lời và các phát hiện (bug logging Part 1, `tests/` thiếu trong Cloud Build, failover 60 s của Nginx) | Đọc lại code mẫu để xác nhận từng phát hiện; số MB và output là từ lệnh thật |
-
-*(Bạn bổ sung / chỉnh cột cuối bằng lời của mình sau khi đọc lại.)*
